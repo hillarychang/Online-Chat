@@ -1,0 +1,26 @@
+<form action="/">
+  <input type="text" name="message" />
+  <input type="submit" value="Send Message" />
+</form>
+
+<script>
+
+setInterval(function(){
+    fetch('/messages')
+  .then(function(response){
+    return response.text();
+  }).then(function(data){
+    let messages = document.getElementById('messages');
+    messages.innerHTML = data;
+  });
+}, 1000);
+
+</script>
+
+<a href="/delete-all-messages">delete all messages</a>
+
+</body>
+
+</html>
+
+
